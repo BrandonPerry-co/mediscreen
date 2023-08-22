@@ -20,12 +20,13 @@ public class PatientController {
     }
 
     @GetMapping("/findAll")
-    public List<Patient> getAlPatients(){
+    public List<Patient> getAlPatients() {
         return patientRepo.findAll();
     }
 
     @PostMapping("/add")
-    public Patient insert(@RequestBody Patient patient){
+    public Patient insert(@RequestParam String family, @RequestParam String given, @RequestParam String dob, @RequestParam String sex, @RequestParam String address, @RequestParam String phone) {
+        Patient patient = Patient.builder().family(family).given(given).dob(dob).sex(sex).address(address).phone(phone).build();
         return patientRepo.save(patient);
     }
 
