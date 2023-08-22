@@ -14,9 +14,9 @@ public class PatientController {
     @Autowired
     private PatientRepo patientRepo;
 
-    @GetMapping("/all")
-    public String helloWorld() {
-        return "Hello, World!";
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 
     @GetMapping("/findAll")
