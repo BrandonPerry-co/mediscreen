@@ -25,9 +25,10 @@ public class PatientController {
     }
 
     @PostMapping("/add")
-    public Patient insert(@RequestParam String family, @RequestParam String given, @RequestParam String dob, @RequestParam String sex, @RequestParam String address, @RequestParam String phone) {
+    public String insert(@RequestParam String family, @RequestParam String given, @RequestParam String dob, @RequestParam String sex, @RequestParam String address, @RequestParam String phone) {
         Patient patient = Patient.builder().family(family).given(given).dob(dob).sex(sex).address(address).phone(phone).build();
-        return patientRepo.save(patient);
+        patientRepo.save(patient);
+        return "Patient successfully added!";
     }
 
 }
