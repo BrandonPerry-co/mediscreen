@@ -2,7 +2,7 @@ version: "3.7"
 services:
   api_service:
     build: .
-    restart: no
+    restart: always
     ports:
       - 8081:8081
     networks:
@@ -17,15 +17,13 @@ services:
 
   mysqldb:
     image: "mysql:8.0"
-    restart: no
+    restart: always
     ports:
       - 3306:3306
     networks:
       - springapimysql-net
     environment:
       MYSQL_DATABASE: mediscreen
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password123
       MYSQL_ROOT_PASSWORD: password123
 networks:
   springapimysql-net:

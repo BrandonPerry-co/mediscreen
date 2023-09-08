@@ -17,11 +17,11 @@ public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String address;
+    private String dob;
     private String family;
     private String given;
-    private String dob;
     private String sex;
-    private String address;
     private String phone;
 
 }

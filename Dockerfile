@@ -1,3 +1,5 @@
-FROM openjdk:17
-ADD target/mediscreen.jar mediscreen.jar
-ENTRYPOINT ["java","-jar","/mediscreen.jar"]
+FROM openjdk:17-alpine
+WORKDIR /opt
+EXPOSE 8081
+COPY target/*.jar /opt/app.jar
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
